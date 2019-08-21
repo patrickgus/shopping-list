@@ -1,7 +1,7 @@
 function shoppingList() {
   $('#js-shopping-list-form').submit(function(event) {
     event.preventDefault();
-    const listItem = $('#js-shopping-list-entry').val();
+    const listItem = $('#shopping-list-entry').val();
 
     if (listItem !== "") {
       $('.shopping-list').append(`<li>
@@ -15,8 +15,12 @@ function shoppingList() {
         </button>
       </div>
     </li>`);
-    $('#js-shopping-list-entry').val("");
+    $('#shopping-list-entry').val("");
     }
+  });
+
+  $('.shopping-list').on('click', '.shopping-item-toggle', function(event) {
+    $(this).closest('.shopping-item-controls').toggleClass('.shopping-item__checked');
   });
 }
 
